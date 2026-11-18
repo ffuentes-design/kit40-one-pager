@@ -1,0 +1,503 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>One-pager Kit 4.0</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&family=Unbounded:wght@500&display=swap">
+<style>
+/* Sistema: código de kit40.mobydigital.com (tokens, escala, contenedor, gutters, breakpoints 1199/899, botón, líneas, glows
+   y las baldosas de vidrio 3D: misma geometría, material, luces y entorno que su three-app).
+   Contenido y orden: one-pager de Flor en Figma (Key Visual, 520:999). */
+:root {
+  color-scheme: dark;
+  --bg-1: #0a2447;
+  --bg-2: #05132d;
+  --bg-mid: #030d22;
+  --bg-3: #020a17;
+  --text: #fff;
+  --text-muted: #ffffffb8;
+  --key: #6ff0fa;
+  --glow: #4efff6;
+  --line: #ffffff24;
+  --line-strong: #ffffff4d;
+  --refuerzo: #339eed;
+  --ink: #05132d;
+  --font-display: "Unbounded", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --container: 1440px;
+  --gutter: 120px;
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+}
+@media (width <= 1199px) { :root { --gutter: 64px; } }
+@media (width <= 899px) { :root { --gutter: 20px; } }
+
+*, ::before, ::after { box-sizing: border-box; }
+html { background: var(--bg-3); }
+body {
+  margin: 0; min-height: 100vh;
+  color: var(--text); font-family: var(--font-body);
+  font-size: 18px; font-weight: 400; line-height: 1.6; letter-spacing: 0;
+  background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 10%, var(--bg-mid) 50%, var(--bg-3) 100%);
+  -webkit-font-smoothing: antialiased; overflow-x: clip;
+}
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+main, header, footer { position: relative; z-index: 3; }
+#stage { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 4; pointer-events: none; display: block; }
+h1, h2, h3, p, ul { margin: 0; }
+ul { padding: 0; list-style: none; }
+img, svg { max-width: 100%; display: block; }
+strong, b { font-weight: 600; }
+em { color: var(--key); font-style: normal; }
+::selection { background: var(--key); color: var(--ink); }
+:focus-visible { outline: 2px solid var(--key); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { text-wrap: balance; }
+p, li { text-wrap: pretty; }
+
+/* escala de la landing */
+.t-hero { letter-spacing: -.035em; font-size: clamp(40px, min(5vw, 8.2vh), 72px); font-weight: 700; line-height: 1.02; }
+.t-scene { letter-spacing: -.025em; font-size: clamp(32px, min(3.6112vw, 5.9vh), 52px); font-weight: 650; line-height: 1.08; }
+.t-h3 { letter-spacing: -.01em; font-size: 24px; font-weight: 600; line-height: 1.25; }
+.t-sub { letter-spacing: -.02em; color: var(--key); font-size: clamp(24px, min(2.23vw, 3.7vh), 32px); font-weight: 600; line-height: 1.15; }
+.t-lead { letter-spacing: -.01em; max-width: 34em; font-size: 22px; font-weight: 400; line-height: 1.45; }
+.t-body-2 { color: var(--text-muted); font-size: 18px; font-weight: 500; line-height: 1.6; }
+.detail { font-family: var(--font-display); letter-spacing: .06em; text-transform: uppercase; font-size: 12px; font-weight: 500; line-height: 1.3; }
+.eyebrow { color: var(--key); }
+.t-figure { font-family: var(--font-display); font-weight: 500; letter-spacing: -.02em; line-height: 1; font-size: 56px; color: var(--key); white-space: nowrap; }
+@media (width <= 899px) {
+  body { font-size: 16px; line-height: 1.55; }
+  .t-hero { font-size: 40px; line-height: 1.05; }
+  .t-scene { font-size: 32px; line-height: 1.1; }
+  .t-h3 { font-size: 20px; }
+  .t-sub { font-size: 24px; line-height: 1.2; }
+  .t-lead { font-size: 18px; line-height: 1.5; }
+  .t-body-2 { font-size: 16px; line-height: 1.55; }
+  .t-figure { font-size: 40px; }
+}
+
+.container {
+  width: 100%; max-width: var(--container); margin-inline: auto;
+  padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
+}
+
+/* baldosa de vidrio: el div reserva el lugar (como .tile en la landing) y el 3D se dibuja encima.
+   Sin WebGL queda esta versión en CSS. */
+.tile { --s: 100px; --rot: 0deg; --light: 0; position: relative; flex: 0 0 auto; width: var(--s); height: var(--s); }
+.tile::before {
+  content: ""; position: absolute; inset: 0; border-radius: 7.4%; transform: rotate(var(--rot));
+  background:
+    radial-gradient(circle at 50% 50%, rgb(78 255 246 / calc(var(--light) * .6)) 0, rgb(78 255 246 / calc(var(--light) * .12)) 30%, transparent 60%),
+    linear-gradient(135deg, rgb(255 255 255 / .16) 0%, rgb(255 255 255 / .03) 42%, rgb(255 255 255 / .02) 100%),
+    rgb(2 10 23 / .25);
+  border: 1px solid rgb(255 255 255 / .16);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / .22), 0 18px 40px rgb(0 0 0 / .35);
+  transition: opacity .4s var(--ease-out);
+}
+html.is-3d .tile::before { opacity: 0; }
+.tile__img { position: absolute; left: -30%; top: -30%; width: 160%; height: 160%; max-width: none; pointer-events: none; }
+.tile.in .tile__img { animation: tile-in .9s var(--ease-out) both; animation-delay: var(--d, 0s); }
+@keyframes tile-in { from { opacity: 0; transform: translateY(16px) rotate(10deg) scale(.94); } to { opacity: 1; transform: none; } }
+
+.btn {
+  background: var(--key); color: var(--ink); letter-spacing: 0; cursor: pointer;
+  transition: background-color .25s var(--ease-out), box-shadow .25s var(--ease-out), transform .25s var(--ease-out);
+  border: 0; border-radius: 999px; justify-content: center; align-items: center; gap: .6em;
+  padding: 19px 30px; font-family: var(--font-body); font-size: 18px; font-weight: 600; line-height: 1.2; text-decoration: none; display: inline-flex;
+}
+.btn:hover { background: rgb(154, 245, 252); box-shadow: rgba(78, 255, 246, .35) 0 0 32px; }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline-offset: 4px; border-radius: 999px; }
+.btn--sm { height: 40px; padding: 0 20px; font-size: 14px; }
+@media (width <= 899px) { .btn:not(.btn--sm) { padding: 17px 24px; font-size: 16px; } }
+
+.site-header { height: 72px; }
+.site-header__inner { height: 100%; display: flex; align-items: center; gap: 36px; }
+.logo { color: var(--text); text-decoration: none; font-size: 26px; line-height: 1; margin-right: auto; }
+.logo svg { height: .96em; width: auto; }
+@media (width <= 899px) {
+  .site-header { height: 60px; }
+  .logo { font-size: 22px; }
+  .site-header__cta { display: none; }
+}
+
+.section { padding-block: 120px; }
+@media (width <= 899px) { .section { padding-block: 72px; } }
+
+/* hero: grilla de la landing (texto + área de baldosa protagonista) y baldosas de decoración */
+.hero {
+  position: relative; display: grid; align-content: center; column-gap: 48px;
+  grid-template: "eyebrow tile" "title tile" "sub tile" / minmax(0, 1fr) clamp(320px, 30vw, 440px);
+  padding-block: clamp(96px, 14vh, 160px) 40px;
+}
+.hero__eyebrow { grid-area: eyebrow; align-self: end; margin-bottom: 24px; }
+.hero .t-hero { grid-area: title; }
+.hero__sub { grid-area: sub; margin-top: 24px; align-self: start; }
+.hero__tile-area { grid-area: tile; place-self: center; position: relative; }
+.hero__tile-area .tile { --s: clamp(220px, 21vw, 300px); }
+.hero__glow { position: absolute; top: 50%; left: 50%; translate: -50% -50%; width: 520px; height: 520px; border-radius: 50%; background: var(--glow); opacity: .1; filter: blur(140px); pointer-events: none; z-index: -1; }
+.hero__decor { position: absolute; inset: 0; pointer-events: none; }
+.hero__decor .tile { position: absolute; }
+.d1 { --s: 56px; --rot: 18deg; left: 54%; top: 6%; }
+.d2 { --s: 40px; --rot: -12deg; left: 92%; top: 4%; }
+.d3 { --s: 36px; --rot: 26deg; left: 60%; top: 84%; }
+.d4 { --s: 64px; --rot: 8deg; left: 90%; top: 80%; }
+.d5 { --s: 28px; --rot: -20deg; left: 76%; top: 98%; }
+@media (width <= 899px) {
+  .hero { display: flex; flex-direction: column; padding-block: 40px 0; }
+  .hero__tile-area { order: -1; align-self: center; margin-bottom: 32px; }
+  .hero__tile-area .tile { --s: 150px; }
+  .hero__glow { width: 300px; height: 300px; filter: blur(90px); }
+  .hero__eyebrow { align-self: flex-start; letter-spacing: .04em; margin-bottom: 12px; font-size: 11px; }
+  .hero__sub { margin-top: 16px; }
+  .d1 { --s: 40px; left: 6%; top: 1%; }
+  .d2 { --s: 32px; left: 84%; top: 2%; }
+  .d3 { --s: 44px; left: 78%; top: 24%; }
+  .d4 { --s: 28px; left: 10%; top: 26%; }
+  .d5 { display: none; }
+}
+
+/* beneficio: como .kit (texto + visual con baldosa, glow y cifra) */
+.benefit { display: grid; grid-template-columns: minmax(0, 600px) minmax(0, 1fr); column-gap: 64px; align-items: center; }
+.benefit__copy .t-scene { margin-bottom: 24px; }
+.benefit__visual { position: relative; display: grid; justify-items: center; row-gap: 32px; }
+.benefit__visual .tile { --s: clamp(200px, 19vw, 280px); }
+.benefit__glow { position: absolute; top: 42%; left: 50%; translate: -50% -50%; width: 560px; height: 520px; border-radius: 50%; background: var(--glow); opacity: .1; filter: blur(150px); pointer-events: none; z-index: -1; }
+.actions { grid-column: 1 / -1; margin-top: 80px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: 32px; row-gap: 24px; }
+.actions li { border-top: 1px solid var(--line-strong); padding-top: 16px; min-width: 0; }
+.actions .t-h3 { display: block; }
+@media (width <= 1199px) { .actions { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (width <= 899px) {
+  .benefit { display: flex; flex-direction: column; align-items: stretch; }
+  .benefit__visual { order: -1; margin-bottom: 40px; row-gap: 24px; }
+  .benefit__visual .tile { --s: 170px; }
+  .benefit__glow { width: 260px; height: 260px; filter: blur(80px); }
+  .actions { margin-top: 40px; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; }
+}
+
+/* qué hace Moby: como .software; los pasos llevan baldosa como .step__mark */
+.moby { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: 64px; align-items: start; }
+.steps { width: 100%; border-bottom: 1px solid var(--line); }
+.steps li { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 20px; align-items: center; border-top: 1px solid var(--line); padding-block: 16px; }
+.steps .tile { --s: 30px; }
+.proof-strip { grid-column: 1 / -1; margin-top: 96px; padding-top: 24px; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: 64px; row-gap: 16px; align-items: baseline; }
+.proof-strip__certs { display: flex; flex-wrap: wrap; gap: 8px 32px; }
+@media (width <= 899px) {
+  .moby { display: flex; flex-direction: column; }
+  .moby .t-scene { margin-bottom: 24px; }
+  .steps .tile { --s: 26px; }
+  .proof-strip { margin-top: 40px; padding-top: 16px; display: block; }
+  .proof-strip__certs { margin-top: 16px; gap: 8px 16px; }
+}
+
+/* cierre: grilla de orden + .refuerzo */
+.close { position: relative; text-align: center; display: flex; flex-direction: column; align-items: center; padding-block: 140px 160px; }
+.close__glow { position: absolute; top: 55%; left: 50%; translate: -50% -50%; width: 1000px; height: 700px; max-width: 100vw; border-radius: 50%; background: var(--refuerzo); opacity: .18; filter: blur(170px); pointer-events: none; z-index: -1; }
+.order-row { display: flex; justify-content: center; gap: 24px; margin-bottom: 80px; }
+.order-row .tile { --s: 72px; }
+.close__title { font-size: clamp(38px, 5vw, 72px); line-height: 1.12; letter-spacing: -.025em; font-weight: 650; }
+.close .btn { margin-top: 40px; }
+@media (width <= 899px) {
+  .close { padding-block: 96px; }
+  .close__glow { width: 420px; height: 420px; filter: blur(100px); }
+  .order-row { gap: 16px; margin-bottom: 56px; }
+  .order-row .tile { --s: 56px; }
+  .order-row .is-desk-only { display: none; }
+  .close__title { font-size: 38px; line-height: 43px; }
+  .close .btn { width: 100%; margin-top: 32px; }
+}
+
+.site-footer { border-top: 1px solid var(--line); }
+.site-footer__content { display: flex; flex-direction: column; align-items: center; text-align: center; padding-block: 64px 48px; }
+.site-footer__content .logo { margin-right: 0; }
+.site-footer__nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 36px; margin-top: 24px; }
+.site-footer__nav a { color: rgba(255, 255, 255, .6); font-size: 14px; font-weight: 500; line-height: 1.5; text-decoration: none; transition: color .2s; }
+.site-footer__nav a:hover { color: var(--text); }
+@media (width <= 899px) { .site-footer__nav a { padding-block: 10px; } }
+
+@media (prefers-reduced-motion: reduce) { .btn, .site-footer__nav a, .tile::before { transition: none; } .tile.in .tile__img { animation: none; } }
+</style>
+
+<canvas id="stage" aria-hidden="true"></canvas>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="logo" href="https://www.mobydigital.com/" aria-label="mobydigital, ir al sitio" data-cta="logo-header">
+      <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="7 -75 570 96"><path fill="currentColor" d="M22.8 0L7.2 0L7.2-53.8L22.1-53.8L22.1-47.6Q24.3-50.1 27.3-51.8Q32.4-54.6 39-54.6Q46.4-54.6 52-50.9Q54.9-48.9 56.7-45.8Q59.1-48.8 62.5-50.9Q68.4-54.6 76.1-54.6Q82.5-54.6 87.5-52.1Q92.4-49.5 95.3-44.2Q98.1-39 98.1-30.8L98.1 0L82.5 0L82.5-28.4Q82.5-34.9 79.8-38Q77.1-41.1 72.2-41.1Q68.8-41.1 66.1-39.6Q63.4-38 61.9-34.9Q60.4-31.8 60.4-27L60.4 0L44.8 0L44.8-28.4Q44.8-34.9 42.2-38Q39.5-41.1 34.6-41.1Q31.2-41.1 28.5-39.6Q25.8-38 24.3-34.9Q22.8-31.8 22.8-27M132.7 0.8Q124.1 0.8 117.5-2.8Q110.8-6.4 107-12.7Q103.1-18.9 103.1-26.9Q103.1-35 107-41.2Q110.8-47.5 117.5-51.1Q124.1-54.6 132.7-54.6Q141.2-54.6 147.9-51.1Q154.6-47.5 158.4-41.3Q162.2-35.1 162.2-26.9Q162.2-18.9 158.4-12.7Q154.6-6.4 147.9-2.8Q141.2 0.8 132.7 0.8M132.7-12Q136.6-12 139.7-13.8Q142.8-15.6 144.6-18.9Q146.4-22.3 146.4-26.9Q146.4-31.6 144.6-34.9Q142.8-38.2 139.7-40Q136.6-41.8 132.7-41.8Q128.8-41.8 125.7-40Q122.6-38.2 120.8-34.9Q118.9-31.6 118.9-26.9Q118.9-22.3 120.8-18.9Q122.6-15.6 125.7-13.8Q128.8-12 132.7-12M199.4 0.8Q192.3 0.8 187.2-2.2Q184.5-3.8 182.5-6.2L182.5 0L167.6 0L167.6-74.2L183.2-74.2L183.2-48.1Q185.1-50.2 187.5-51.6Q192.6-54.6 199.4-54.6Q207-54.6 213.1-51.2Q219.1-47.8 222.7-41.6Q226.2-35.4 226.2-26.9Q226.2-18.5 222.7-12.3Q219.1-6.1 213.1-2.7Q207 0.8 199.4 0.8M196.7-12Q200.6-12 203.7-13.8Q206.7-15.6 208.6-18.9Q210.4-22.3 210.4-26.9Q210.4-31.6 208.6-34.9Q206.7-38.2 203.7-40Q200.6-41.8 196.7-41.8Q192.8-41.8 189.7-40Q186.6-38.2 184.8-34.9Q183-31.6 183-26.9Q183-22.3 184.8-18.9Q186.6-15.6 189.7-13.8Q192.8-12 196.7-12M238.4 20.2Q234.2 20.2 230.1 18.9Q226 17.6 223.4 15.3L229.1 4.2Q230.9 5.8 233.3 6.7Q235.6 7.6 237.9 7.6Q241.2 7.6 243.2 6.1Q245.1 4.5 246.7 0.9L246.9 0.4L223.6-53.8L239.7-53.8L254.8-17.3L270-53.8L285-53.8L260.7 3.3Q258.1 9.8 254.8 13.5Q251.4 17.2 247.4 18.7Q243.3 20.2 238.4 20.2M310 0.5Q302.5 0.5 296.6-2.9Q290.6-6.3 287.2-12.4Q283.8-18.4 283.8-26.3Q283.8-34.3 287.2-40.3Q290.6-46.3 296.6-49.7Q302.5-53 310-53Q316.9-53 322.4-49.9Q327-47.3 330-42.6L330-74.2L337.1-74.2L337.1 0L330.3 0L330.3-10.4Q327.2-5.4 322.5-2.7Q317 0.5 310 0.5M310.5-5.8Q316.1-5.8 320.6-8.3Q325-10.9 327.6-15.6Q330.1-20.2 330.1-26.3Q330.1-32.5 327.6-37.1Q325-41.7 320.6-44.2Q316.1-46.8 310.5-46.8Q305-46.8 300.6-44.2Q296.2-41.7 293.6-37.1Q291-32.5 291-26.3Q291-20.2 293.6-15.6Q296.2-10.9 300.6-8.3Q305-5.8 310.5-5.8M359 0L351.9 0L351.9-52.5L359-52.5L359 0M355.5-64.1Q353.3-64.1 351.8-65.6Q350.3-67.1 350.3-69.2Q350.3-71.3 351.8-72.7Q353.3-74.2 355.5-74.2Q357.7-74.2 359.2-72.8Q360.7-71.4 360.7-69.3Q360.7-67.1 359.3-65.6Q357.8-64.1 355.5-64.1M396.2 19.9Q389 19.9 382.4 17.8Q375.8 15.7 371.7 11.8L375.3 6.4Q379 9.7 384.4 11.7Q389.9 13.6 396 13.6Q406 13.6 410.7 9Q415.4 4.3 415.4-5.5L415.4-12.1Q412.3-7.6 407.5-5Q401.9-2 394.9-2Q387.4-2 381.4-5.2Q375.4-8.5 371.9-14.3Q368.5-20.1 368.5-27.6Q368.5-35.1 371.9-40.9Q375.4-46.6 381.4-49.8Q387.4-53 394.9-53Q401.9-53 407.5-50.1Q412.5-47.5 415.7-42.6L415.7-52.5L422.5-52.5L422.5-6.4Q422.5 7.2 415.8 13.6Q409.2 19.9 396.2 19.9M395.6-8.3Q401.4-8.3 405.9-10.7Q410.4-13.2 413-17.6Q415.6-21.9 415.6-27.6Q415.6-33.3 413-37.6Q410.4-41.9 405.9-44.4Q401.4-46.8 395.6-46.8Q389.9-46.8 385.3-44.4Q380.8-41.9 378.3-37.6Q375.7-33.3 375.7-27.6Q375.7-21.9 378.3-17.6Q380.8-13.2 385.3-10.7Q389.9-8.3 395.6-8.3M444.4 0L437.3 0L437.3-52.5L444.4-52.5L444.4 0M440.9-64.1Q438.7-64.1 437.2-65.6Q435.7-67.1 435.7-69.2Q435.7-71.3 437.2-72.7Q438.7-74.2 440.9-74.2Q443.1-74.2 444.6-72.8Q446.1-71.4 446.1-69.3Q446.1-67.1 444.6-65.6Q443.2-64.1 440.9-64.1M475.8 0.5Q468.4 0.5 464.4-3.5Q460.4-7.5 460.4-14.8L460.4-46.6L451-46.6L451-52.5L460.4-52.5L460.4-64.1L467.5-64.1L467.5-52.5L483.5-52.5L483.5-46.6L467.5-46.6L467.5-15.2Q467.5-10.6 469.8-8.1Q472.2-5.6 476.6-5.6Q481.3-5.6 484.4-8.3L486.9-3.2Q484.8-1.3 481.8-0.4Q478.9 0.5 475.8 0.5M534.5 0L527.7 0L527.7-8.2Q525.7-4.9 522.1-2.6Q517.1 0.5 509.6 0.5Q503.7 0.5 499.3-1.5Q495-3.4 492.7-6.9Q490.4-10.3 490.4-14.8Q490.4-18.9 492.3-22.2Q494.3-25.6 498.8-27.7Q503.2-29.7 510.7-29.7L527.4-29.7L527.4-32.9Q527.4-39.6 523.6-43.2Q519.9-46.8 512.5-46.8Q507.4-46.8 502.8-45.1Q498.2-43.4 495-40.6L491.8-45.9Q495.8-49.3 501.4-51.2Q507-53 513.2-53Q523.4-53 528.9-48Q534.5-42.9 534.5-32.6L534.5 0M527.4-15.8L527.4-24.4L510.9-24.4Q503.3-24.4 500.3-21.7Q497.4-19 497.4-15Q497.4-10.5 500.9-7.8Q504.4-5.1 510.7-5.1Q516.7-5.1 521-7.9Q525.4-10.6 527.4-15.8M555.9 0L548.8 0L548.8-74.2L555.9-74.2M571.4 0.5Q569.2 0.5 567.6-1.1Q566.1-2.7 566.1-5Q566.1-7.4 567.6-8.9Q569.2-10.4 571.4-10.4Q573.6-10.4 575.1-8.9Q576.7-7.4 576.7-5Q576.7-2.7 575.1-1.1Q573.6 0.5 571.4 0.5"/></svg>
+    </a>
+    <a class="btn btn--sm site-header__cta" href="https://www.kit40.mobydigital.com/?utm_source=instantly&amp;utm_medium=email&amp;utm_campaign=kit40_outreach_prueba1&amp;utm_content=header" data-cta="onepager-header">Conocé todo sobre el Kit 4.0 <span aria-hidden="true">→</span></a>
+  </div>
+</header>
+
+<main>
+  <section class="container hero" aria-labelledby="titulo">
+    <div class="hero__decor" aria-hidden="true">
+      <div class="tile d1"></div>
+      <div class="tile d2"></div>
+      <div class="tile d3" style="--light:.35"></div>
+      <div class="tile d4"></div>
+      <div class="tile d5"></div>
+    </div>
+    <p class="eyebrow hero__eyebrow detail">Kit 4.0</p>
+    <h1 id="titulo" class="t-hero">Hay proyectos que <br>tu empresa necesita.</h1>
+    <p class="t-sub hero__sub">Ahora hay una forma de hacerlos posible.</p>
+    <div class="hero__tile-area" aria-hidden="true">
+      <span class="hero__glow"></span>
+      <div class="tile" style="--rot:12deg; --light:1"></div>
+    </div>
+  </section>
+
+  <section class="container section benefit" aria-labelledby="beneficio">
+    <div class="benefit__copy">
+      <h2 id="beneficio" class="t-scene">El Estado puede cubrir <em>hasta el 50%</em> de tu proyecto.</h2>
+      <p class="t-lead">Hasta $20 millones de cofinanciación.</p>
+    </div>
+    <div class="benefit__visual" aria-hidden="true">
+      <span class="benefit__glow"></span>
+      <div class="tile" style="--rot:-8deg; --light:.8"></div>
+      <span class="t-figure">50%</span>
+    </div>
+    <ul class="actions" aria-label="Qué podrías hacer">
+      <li><b class="t-h3">Ordenar</b><span class="t-body-2">procesos.</span></li>
+      <li><b class="t-h3">Conectar</b><span class="t-body-2">sistemas.</span></li>
+      <li><b class="t-h3">Automatizar</b><span class="t-body-2">tareas.</span></li>
+      <li><b class="t-h3">Organizar</b><span class="t-body-2">información.</span></li>
+      <li><b class="t-h3">Mejorar</b><span class="t-body-2">herramientas que ya tenés.</span></li>
+    </ul>
+  </section>
+
+  <section class="container section moby" aria-labelledby="moby">
+    <h2 id="moby" class="t-scene">No tenés que llegar <br>con el proyecto armado.</h2>
+    <ul class="steps">
+      <li><span class="tile" style="--rot:14deg; --light:.2" aria-hidden="true"></span><span class="t-lead">Definimos el proyecto.</span></li>
+      <li><span class="tile" style="--rot:-6deg; --light:.2" aria-hidden="true"></span><span class="t-lead">Gestionamos la documentación.</span></li>
+      <li><span class="tile" style="--rot:10deg; --light:.2" aria-hidden="true"></span><span class="t-lead">Acompañamos el proceso de Kit 4.0.</span></li>
+      <li><span class="tile" style="--rot:0deg; --light:1" aria-hidden="true"></span><span class="t-lead">Implementamos la solución.</span></li>
+    </ul>
+    <div class="proof-strip">
+      <p class="t-body-2">Trabajamos hace más de 10 años entendiendo procesos y tecnología.</p>
+      <ul class="proof-strip__certs">
+        <li class="t-body-2">ISO 9001.</li>
+        <li class="t-body-2">Proveedor homologado de Kit 4.0.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="container close" aria-labelledby="cierre">
+    <span class="close__glow" aria-hidden="true"></span>
+    <div class="order-row" aria-hidden="true">
+      <div class="tile is-desk-only" style="--rot:0deg; --light:.04"></div>
+      <div class="tile is-desk-only" style="--rot:6deg; --light:.04"></div>
+      <div class="tile" style="--rot:-4deg; --light:.12"></div>
+      <div class="tile" style="--rot:3deg; --light:.35"></div>
+      <div class="tile" style="--rot:0deg; --light:1"></div>
+      <div class="tile" style="--rot:-3deg; --light:.35"></div>
+      <div class="tile is-desk-only" style="--rot:5deg; --light:.12"></div>
+      <div class="tile is-desk-only" style="--rot:-6deg; --light:.04"></div>
+    </div>
+    <h2 id="cierre" class="close__title">¿Qué podrías hacer <br>con él <em>en tu empresa?</em></h2>
+    <a class="btn" href="https://www.kit40.mobydigital.com/?utm_source=instantly&amp;utm_medium=email&amp;utm_campaign=kit40_outreach_prueba1&amp;utm_content=onepager" data-cta="onepager-landing">Conocé todo sobre el Kit 4.0 <span aria-hidden="true">→</span></a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__content">
+    <a class="logo" href="https://www.mobydigital.com/" aria-label="mobydigital, ir al sitio" data-cta="logo-footer">
+      <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="7 -75 570 96"><path fill="currentColor" d="M22.8 0L7.2 0L7.2-53.8L22.1-53.8L22.1-47.6Q24.3-50.1 27.3-51.8Q32.4-54.6 39-54.6Q46.4-54.6 52-50.9Q54.9-48.9 56.7-45.8Q59.1-48.8 62.5-50.9Q68.4-54.6 76.1-54.6Q82.5-54.6 87.5-52.1Q92.4-49.5 95.3-44.2Q98.1-39 98.1-30.8L98.1 0L82.5 0L82.5-28.4Q82.5-34.9 79.8-38Q77.1-41.1 72.2-41.1Q68.8-41.1 66.1-39.6Q63.4-38 61.9-34.9Q60.4-31.8 60.4-27L60.4 0L44.8 0L44.8-28.4Q44.8-34.9 42.2-38Q39.5-41.1 34.6-41.1Q31.2-41.1 28.5-39.6Q25.8-38 24.3-34.9Q22.8-31.8 22.8-27M132.7 0.8Q124.1 0.8 117.5-2.8Q110.8-6.4 107-12.7Q103.1-18.9 103.1-26.9Q103.1-35 107-41.2Q110.8-47.5 117.5-51.1Q124.1-54.6 132.7-54.6Q141.2-54.6 147.9-51.1Q154.6-47.5 158.4-41.3Q162.2-35.1 162.2-26.9Q162.2-18.9 158.4-12.7Q154.6-6.4 147.9-2.8Q141.2 0.8 132.7 0.8M132.7-12Q136.6-12 139.7-13.8Q142.8-15.6 144.6-18.9Q146.4-22.3 146.4-26.9Q146.4-31.6 144.6-34.9Q142.8-38.2 139.7-40Q136.6-41.8 132.7-41.8Q128.8-41.8 125.7-40Q122.6-38.2 120.8-34.9Q118.9-31.6 118.9-26.9Q118.9-22.3 120.8-18.9Q122.6-15.6 125.7-13.8Q128.8-12 132.7-12M199.4 0.8Q192.3 0.8 187.2-2.2Q184.5-3.8 182.5-6.2L182.5 0L167.6 0L167.6-74.2L183.2-74.2L183.2-48.1Q185.1-50.2 187.5-51.6Q192.6-54.6 199.4-54.6Q207-54.6 213.1-51.2Q219.1-47.8 222.7-41.6Q226.2-35.4 226.2-26.9Q226.2-18.5 222.7-12.3Q219.1-6.1 213.1-2.7Q207 0.8 199.4 0.8M196.7-12Q200.6-12 203.7-13.8Q206.7-15.6 208.6-18.9Q210.4-22.3 210.4-26.9Q210.4-31.6 208.6-34.9Q206.7-38.2 203.7-40Q200.6-41.8 196.7-41.8Q192.8-41.8 189.7-40Q186.6-38.2 184.8-34.9Q183-31.6 183-26.9Q183-22.3 184.8-18.9Q186.6-15.6 189.7-13.8Q192.8-12 196.7-12M238.4 20.2Q234.2 20.2 230.1 18.9Q226 17.6 223.4 15.3L229.1 4.2Q230.9 5.8 233.3 6.7Q235.6 7.6 237.9 7.6Q241.2 7.6 243.2 6.1Q245.1 4.5 246.7 0.9L246.9 0.4L223.6-53.8L239.7-53.8L254.8-17.3L270-53.8L285-53.8L260.7 3.3Q258.1 9.8 254.8 13.5Q251.4 17.2 247.4 18.7Q243.3 20.2 238.4 20.2M310 0.5Q302.5 0.5 296.6-2.9Q290.6-6.3 287.2-12.4Q283.8-18.4 283.8-26.3Q283.8-34.3 287.2-40.3Q290.6-46.3 296.6-49.7Q302.5-53 310-53Q316.9-53 322.4-49.9Q327-47.3 330-42.6L330-74.2L337.1-74.2L337.1 0L330.3 0L330.3-10.4Q327.2-5.4 322.5-2.7Q317 0.5 310 0.5M310.5-5.8Q316.1-5.8 320.6-8.3Q325-10.9 327.6-15.6Q330.1-20.2 330.1-26.3Q330.1-32.5 327.6-37.1Q325-41.7 320.6-44.2Q316.1-46.8 310.5-46.8Q305-46.8 300.6-44.2Q296.2-41.7 293.6-37.1Q291-32.5 291-26.3Q291-20.2 293.6-15.6Q296.2-10.9 300.6-8.3Q305-5.8 310.5-5.8M359 0L351.9 0L351.9-52.5L359-52.5L359 0M355.5-64.1Q353.3-64.1 351.8-65.6Q350.3-67.1 350.3-69.2Q350.3-71.3 351.8-72.7Q353.3-74.2 355.5-74.2Q357.7-74.2 359.2-72.8Q360.7-71.4 360.7-69.3Q360.7-67.1 359.3-65.6Q357.8-64.1 355.5-64.1M396.2 19.9Q389 19.9 382.4 17.8Q375.8 15.7 371.7 11.8L375.3 6.4Q379 9.7 384.4 11.7Q389.9 13.6 396 13.6Q406 13.6 410.7 9Q415.4 4.3 415.4-5.5L415.4-12.1Q412.3-7.6 407.5-5Q401.9-2 394.9-2Q387.4-2 381.4-5.2Q375.4-8.5 371.9-14.3Q368.5-20.1 368.5-27.6Q368.5-35.1 371.9-40.9Q375.4-46.6 381.4-49.8Q387.4-53 394.9-53Q401.9-53 407.5-50.1Q412.5-47.5 415.7-42.6L415.7-52.5L422.5-52.5L422.5-6.4Q422.5 7.2 415.8 13.6Q409.2 19.9 396.2 19.9M395.6-8.3Q401.4-8.3 405.9-10.7Q410.4-13.2 413-17.6Q415.6-21.9 415.6-27.6Q415.6-33.3 413-37.6Q410.4-41.9 405.9-44.4Q401.4-46.8 395.6-46.8Q389.9-46.8 385.3-44.4Q380.8-41.9 378.3-37.6Q375.7-33.3 375.7-27.6Q375.7-21.9 378.3-17.6Q380.8-13.2 385.3-10.7Q389.9-8.3 395.6-8.3M444.4 0L437.3 0L437.3-52.5L444.4-52.5L444.4 0M440.9-64.1Q438.7-64.1 437.2-65.6Q435.7-67.1 435.7-69.2Q435.7-71.3 437.2-72.7Q438.7-74.2 440.9-74.2Q443.1-74.2 444.6-72.8Q446.1-71.4 446.1-69.3Q446.1-67.1 444.6-65.6Q443.2-64.1 440.9-64.1M475.8 0.5Q468.4 0.5 464.4-3.5Q460.4-7.5 460.4-14.8L460.4-46.6L451-46.6L451-52.5L460.4-52.5L460.4-64.1L467.5-64.1L467.5-52.5L483.5-52.5L483.5-46.6L467.5-46.6L467.5-15.2Q467.5-10.6 469.8-8.1Q472.2-5.6 476.6-5.6Q481.3-5.6 484.4-8.3L486.9-3.2Q484.8-1.3 481.8-0.4Q478.9 0.5 475.8 0.5M534.5 0L527.7 0L527.7-8.2Q525.7-4.9 522.1-2.6Q517.1 0.5 509.6 0.5Q503.7 0.5 499.3-1.5Q495-3.4 492.7-6.9Q490.4-10.3 490.4-14.8Q490.4-18.9 492.3-22.2Q494.3-25.6 498.8-27.7Q503.2-29.7 510.7-29.7L527.4-29.7L527.4-32.9Q527.4-39.6 523.6-43.2Q519.9-46.8 512.5-46.8Q507.4-46.8 502.8-45.1Q498.2-43.4 495-40.6L491.8-45.9Q495.8-49.3 501.4-51.2Q507-53 513.2-53Q523.4-53 528.9-48Q534.5-42.9 534.5-32.6L534.5 0M527.4-15.8L527.4-24.4L510.9-24.4Q503.3-24.4 500.3-21.7Q497.4-19 497.4-15Q497.4-10.5 500.9-7.8Q504.4-5.1 510.7-5.1Q516.7-5.1 521-7.9Q525.4-10.6 527.4-15.8M555.9 0L548.8 0L548.8-74.2L555.9-74.2M571.4 0.5Q569.2 0.5 567.6-1.1Q566.1-2.7 566.1-5Q566.1-7.4 567.6-8.9Q569.2-10.4 571.4-10.4Q573.6-10.4 575.1-8.9Q576.7-7.4 576.7-5Q576.7-2.7 575.1-1.1Q573.6 0.5 571.4 0.5"/></svg>
+    </a>
+    <nav class="site-footer__nav" aria-label="Pie">
+      <a href="https://www.kit40.mobydigital.com/?utm_source=instantly&amp;utm_medium=email&amp;utm_campaign=kit40_outreach_prueba1&amp;utm_content=footer" data-cta="footer-kit40">Kit 4.0</a>
+      <a href="https://www.mobydigital.com/" data-cta="footer-mobydigital">mobydigital.com</a>
+    </nav>
+  </div>
+</footer>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.min.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { mergeVertices } from 'three/addons/utils/BufferGeometryUtils.js';
+
+const canvas = document.getElementById('stage');
+const els = Array.from(document.querySelectorAll('.tile'));
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const DEG = Math.PI / 180;
+
+try {
+  // En celular el canvas fijo no acompaña bien el scroll nativo (tiembla). Ahí cada baldosa se renderiza
+  // una sola vez en 3D y queda como imagen dentro de la página; la entrada la hace CSS.
+  const mobile = window.matchMedia('(max-width: 899px), (pointer: coarse)').matches;
+  const renderer = new THREE.WebGLRenderer({ canvas: mobile ? document.createElement('canvas') : canvas, alpha: true, antialias: true, premultipliedAlpha: true, preserveDrawingBuffer: mobile, powerPreference: mobile ? 'default' : 'high-performance' });
+  if (mobile) canvas.remove();
+  renderer.setClearColor(0, 0);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.NoToneMapping;
+
+  const scene = new THREE.Scene();
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.02).texture;
+  scene.environmentIntensity = 1.3;
+  pmrem.dispose();
+  const key = new THREE.Color('#6ff0fa');
+  const l1 = new THREE.DirectionalLight(0xffffff, 6); l1.position.set(-0.6, 0.85, 1);
+  const l2 = new THREE.DirectionalLight(key, 1.4); l2.position.set(0.9, -0.5, -0.35);
+  scene.add(l1, l2);
+
+  // geometría de la landing: losa de esquinas redondeadas con bisel (radio .074, profundidad .22, bisel .025)
+  const R = 0.074, D = 0.22, B = 0.025;
+  const rr = (w, h, r) => { const s = new THREE.Shape(), x = -w / 2, y = -h / 2;
+    s.moveTo(x + r, y); s.lineTo(x + w - r, y); s.quadraticCurveTo(x + w, y, x + w, y + r);
+    s.lineTo(x + w, y + h - r); s.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    s.lineTo(x + r, y + h); s.quadraticCurveTo(x, y + h, x, y + h - r);
+    s.lineTo(x, y + r); s.quadraticCurveTo(x, y, x + r, y); return s; };
+  let geo = new THREE.ExtrudeGeometry(rr(1 - 2 * B, 1 - 2 * B, R - B), { depth: D - 2 * B, bevelEnabled: true, bevelThickness: B, bevelSize: B, bevelSegments: 4, curveSegments: 10 });
+  geo.center(); geo.deleteAttribute('uv'); geo.deleteAttribute('normal');
+  geo = mergeVertices(geo, 1e-6); geo.computeVertexNormals();
+  const fxArr = new Float32Array(els.length * 2);
+  const fx = new THREE.InstancedBufferAttribute(fxArr, 2);
+  geo.setAttribute('aFx', fx);
+
+  // material de las baldosas de decoración de la landing (vidrio con núcleo de luz y velo arriba a la izquierda)
+  const mat = new THREE.MeshPhysicalMaterial({
+    color: new THREE.Color('#020a17').multiplyScalar(0.45), metalness: 0, roughness: 0.12,
+    transparent: true, opacity: 0.15,
+    blending: THREE.CustomBlending, blendSrc: THREE.OneFactor, blendDst: THREE.OneMinusSrcAlphaFactor,
+    blendSrcAlpha: THREE.OneFactor, blendDstAlpha: THREE.OneMinusSrcAlphaFactor,
+    clearcoat: 0.55, clearcoatRoughness: 0.06, specularIntensity: 0.7, envMapIntensity: 0.7, depthWrite: false
+  });
+  const uGlow = { value: new THREE.Color('#4efff6') };
+  mat.onBeforeCompile = (sh) => {
+    sh.uniforms.uGlow = uGlow;
+    sh.vertexShader = sh.vertexShader
+      .replace('#include <common>', '#include <common>\nattribute vec2 aFx;\nvarying vec2 vFx;\nvarying vec3 vLocal;')
+      .replace('#include <begin_vertex>', '#include <begin_vertex>\nvFx = aFx;\nvLocal = position;');
+    sh.fragmentShader = sh.fragmentShader
+      .replace('#include <common>', '#include <common>\nuniform vec3 uGlow;\nvarying vec2 vFx;\nvarying vec3 vLocal;')
+      .replace('#include <opaque_fragment>', `#include <opaque_fragment>
+        {
+          float r = length(vLocal.xy);
+          float core = exp(-r * r / 0.012) + 0.3 * exp(-r * r / 0.09) + 0.06 * exp(-r * r / 0.35);
+          float face = smoothstep(0.08, 0.105, vLocal.z);
+          float sheen = face * pow(clamp(0.5 + 0.75 * (vLocal.y - vLocal.x), 0.0, 1.0), 2.5);
+          gl_FragColor.rgb += uGlow * vFx.y * core * 0.7 + vec3(0.62, 0.74, 1.0) * sheen * 0.05;
+        }`)
+      .replace('#include <dithering_fragment>', '#include <dithering_fragment>\ngl_FragColor *= vFx.x;' +
+        // al hornear a PNG la luz aditiva no entra en un alfa de .15: se sube el alfa a la luz de cada píxel
+        (mobile ? '\ngl_FragColor.a = max(gl_FragColor.a, max(gl_FragColor.r, max(gl_FragColor.g, gl_FragColor.b)));' : ''));
+  };
+  mat.customProgramCacheKey = () => 'decor-glass';
+
+  const mesh = new THREE.InstancedMesh(geo, mat, els.length);
+  mesh.frustumCulled = false;
+  if (mobile) mesh.count = 1;
+  scene.add(mesh);
+
+  const camera = new THREE.OrthographicCamera(0, 1, 0, -1, -5000, 5000);
+
+  let seed = 7;
+  const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+  const tiles = els.map((el, i) => {
+    const cs = getComputedStyle(el);
+    return {
+      el, rot: (parseFloat(cs.getPropertyValue('--rot')) || 0) * DEG,
+      light: parseFloat(cs.getPropertyValue('--light')) || 0,
+      tx: (14 + rnd() * 10) * DEG * (rnd() < 0.5 ? -1 : 1),
+      ty: (12 + rnd() * 12) * DEG * (rnd() < 0.5 ? -1 : 1),
+      ph: rnd() * Math.PI * 2, ph2: rnd() * Math.PI * 2, seen: null
+    };
+  });
+
+  const o = new THREE.Object3D();
+  const tiltK = s => Math.min(1, Math.max(0.35, s / 140)); // baldosas chicas: menos inclinación para que no reflejen de lleno
+
+  if (mobile) {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const bake = () => {
+      tiles.forEach((t) => {
+        t.el.querySelectorAll('.tile__img').forEach(n => n.remove());
+        const s = t.el.getBoundingClientRect().width;
+        if (!s) return;
+        t.light = parseFloat(getComputedStyle(t.el).getPropertyValue('--light')) || 0;
+        const px = Math.round(s * 1.6), k = tiltK(s);
+        renderer.setPixelRatio(dpr); renderer.setSize(px, px, false);
+        camera.left = -px / 2; camera.right = px / 2; camera.top = px / 2; camera.bottom = -px / 2; camera.updateProjectionMatrix();
+        o.position.set(0, 0, 0); o.rotation.set(t.tx * k, t.ty * k, t.rot); o.scale.setScalar(s); o.updateMatrix();
+        mesh.setMatrixAt(0, o.matrix); mesh.instanceMatrix.needsUpdate = true;
+        fxArr[0] = 1; fxArr[1] = t.light; fx.needsUpdate = true;
+        renderer.render(scene, camera);
+        const img = new Image(); img.className = 'tile__img'; img.alt = ''; img.decoding = 'async';
+        img.src = renderer.domElement.toDataURL('image/png');
+        t.el.appendChild(img);
+      });
+    };
+    bake();
+    let lastW = window.innerWidth, tmr = 0;
+    window.addEventListener('resize', () => { clearTimeout(tmr); tmr = setTimeout(() => { if (Math.abs(window.innerWidth - lastW) > 40) { lastW = window.innerWidth; bake(); } }, 300); });
+    if (!reduce && 'IntersectionObserver' in window) {
+      document.querySelectorAll('.tile').forEach(el => { const sib = Array.from(el.parentElement.children).filter(n => n.classList.contains('tile')); el.style.setProperty('--d', (sib.indexOf(el) * 0.07) + 's'); });
+      const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px' });
+      tiles.forEach(t => io.observe(t.el));
+    }
+  } else {
+    let W = 0, H = 0;
+    const resize = () => {
+      W = window.innerWidth; H = window.innerHeight;
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderer.setSize(W, H, false);
+      camera.left = 0; camera.right = W; camera.top = 0; camera.bottom = -H; camera.updateProjectionMatrix();
+      tiles.forEach(t => { t.light = parseFloat(getComputedStyle(t.el).getPropertyValue('--light')) || 0; });
+    };
+    resize();
+
+    const ease = x => 1 - Math.pow(1 - x, 3);
+    const t0 = performance.now();
+    const draw = (now) => {
+      const time = (now - t0) / 1000;
+      tiles.forEach((t, i) => {
+        const r = t.el.getBoundingClientRect();
+        const s = r.width;
+        const visible = s > 0 && r.bottom > -s && r.top < H + s;
+        if (visible && t.seen === null) t.seen = now + (now - t0 < 300 ? i * 60 : 0);
+        const p = reduce || t.seen === null ? 1 : ease(Math.min(1, Math.max(0, (now - t.seen) / 1100)));
+        const k = tiltK(s);
+        const idle = reduce ? 0 : k;
+        o.position.set(r.left + s / 2, -(r.top + s / 2) - (1 - p) * 28, 0);
+        o.rotation.set(
+          t.tx * k + (1 - p) * 22 * DEG + idle * Math.sin(time * 0.35 + t.ph2) * 3 * DEG,
+          t.ty * k + idle * Math.cos(time * 0.3 + t.ph) * 3 * DEG,
+          t.rot + (1 - p) * 28 * DEG + idle * Math.sin(time * 0.45 + t.ph) * 2.5 * DEG
+        );
+        o.scale.setScalar(visible ? s : 0);
+        o.updateMatrix();
+        mesh.setMatrixAt(i, o.matrix);
+        fxArr[i * 2] = visible ? p : 0;
+        fxArr[i * 2 + 1] = t.light;
+      });
+      mesh.instanceMatrix.needsUpdate = true;
+      fx.needsUpdate = true;
+      renderer.render(scene, camera);
+    };
+
+    window.addEventListener('resize', () => { resize(); if (reduce) draw(performance.now()); });
+    if (reduce) {
+      window.addEventListener('scroll', () => requestAnimationFrame(draw), { passive: true });
+      draw(performance.now());
+    } else {
+      const loop = (now) => { draw(now); requestAnimationFrame(loop); };
+      requestAnimationFrame(loop);
+    }
+  }
+  document.documentElement.classList.add('is-3d');
+} catch (e) {
+  canvas.remove(); // sin WebGL quedan las baldosas en CSS
+}
+</script>
+
+</body></html>
